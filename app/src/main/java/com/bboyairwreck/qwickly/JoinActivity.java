@@ -1,4 +1,4 @@
-package com.bboyairwreck.multiplayergame;
+package com.bboyairwreck.qwickly;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

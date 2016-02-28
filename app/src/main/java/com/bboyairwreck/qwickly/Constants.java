@@ -1,4 +1,4 @@
-package com.bboyairwreck.multiplayergame;
+package com.bboyairwreck.qwickly;
 
 /**
  * Created by eric on 2/27/16.

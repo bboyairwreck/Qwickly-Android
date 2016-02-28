@@ -1,4 +1,4 @@
-package com.bboyairwreck.multiplayergame;
+package com.bboyairwreck.qwickly;
 
 import org.junit.Test;
 

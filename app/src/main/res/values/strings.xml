@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Multiplayer Game</string>
+    <string name="app_name">Qwickly</string>
     <string name="game_code">GAME CODE</string>
     <string name="game_code_placeholder">A462</string>
     <string name="waiting_for_players">Waiting for players&#8230;</string>
