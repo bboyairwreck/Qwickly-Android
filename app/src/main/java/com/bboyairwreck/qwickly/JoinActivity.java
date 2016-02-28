@@ -36,7 +36,7 @@ public class JoinActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
-        MultiplayerApplication app = MultiplayerApplication.getInstance();
+        QwicklyApplication app = QwicklyApplication.getInstance();
 
         this.username = app.getUsername();
         playersMap = new HashMap<>();
@@ -184,7 +184,7 @@ public class JoinActivity extends AppCompatActivity {
                 // TODO check if game exists
                 final String gameCode = etGameCode.getText().toString();
 
-                MultiplayerApplication.getInstance().getQFirebase().child("games").addListenerForSingleValueEvent(new ValueEventListener() {
+                QwicklyApplication.getInstance().getQFirebase().child("games").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.hasChild(gameCode)) {

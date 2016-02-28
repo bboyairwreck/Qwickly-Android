@@ -8,14 +8,14 @@ import com.firebase.client.Firebase;
 /**
  * Created by eric on 2/27/16.
  */
-public class MultiplayerApplication extends Application {
-    private final String TAG = MultiplayerApplication.class.getSimpleName();
-    public static MultiplayerApplication instance;    // singleton
+public class QwicklyApplication extends Application {
+    private final String TAG = QwicklyApplication.class.getSimpleName();
+    public static QwicklyApplication instance;    // singleton
     private String username = "unknown";
     private Firebase qFirebase;
     private Firebase gameFirebase;
 
-    public MultiplayerApplication() {
+    public QwicklyApplication() {
         if (instance == null) {
             instance = this;
         } else {
@@ -23,7 +23,7 @@ public class MultiplayerApplication extends Application {
         }
     }
 
-    public static MultiplayerApplication getInstance() {
+    public static QwicklyApplication getInstance() {
         return instance;
     }
 
