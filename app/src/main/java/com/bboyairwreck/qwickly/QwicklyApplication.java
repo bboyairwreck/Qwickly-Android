@@ -14,6 +14,7 @@ public class QwicklyApplication extends Application {
     private String username = "unknown";
     private Firebase qFirebase;
     private Firebase gameFirebase;
+    private Firebase selfPlayerFirebase;
 
     public QwicklyApplication() {
         if (instance == null) {
@@ -63,5 +64,13 @@ public class QwicklyApplication extends Application {
 
     public Firebase getGameFirebase() {
         return this.gameFirebase;
+    }
+
+    public void setSelfPlayerFirebase(Firebase selfPlayerFirebase) {
+        this.selfPlayerFirebase = selfPlayerFirebase;
+    }
+
+    public String getSelfPlayerID() {
+        return selfPlayerFirebase.getKey();
     }
 }

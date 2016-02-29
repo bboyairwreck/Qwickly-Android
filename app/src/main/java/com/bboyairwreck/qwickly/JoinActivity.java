@@ -192,10 +192,11 @@ public class JoinActivity extends AppCompatActivity {
 
                             tvGameCode.setText(gameID);
                             tvGameCode.setVisibility(View.VISIBLE);
+
+                            setSelfPlayer();
+
                             btnJoinGame.setVisibility(View.GONE);
                             etGameCode.setVisibility(View.GONE);
-                            selfPlayerFirebase = gameFirebase.child("players").push();
-                            selfPlayerFirebase.setValue(username);
 
                             tvWaiting.setVisibility(View.VISIBLE);
 
@@ -220,17 +221,13 @@ public class JoinActivity extends AppCompatActivity {
         Log.i(TAG, "Player is a creator");
         TextView tvGameCode = (TextView) findViewById(R.id.tvGameCode);
         tvGameCode.setText(gameID);
-        selfPlayerFirebase = gameFirebase.child("players").push();
-        selfPlayerFirebase.setValue(username);
+        setSelfPlayer();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        if (gameFirebase != null && selfPlayerFirebase != null) {
-            gameFirebase.child("players").child(getSelfPlayerID()).removeValue();
-        }
+    private void setSelfPlayer() {
+        selfPlayerFirebase = gameFirebase.child("players").push();
+        selfPlayerFirebase.setValue(username);
+        QwicklyApplication.getInstance().setSelfPlayerFirebase(selfPlayerFirebase);
     }
 
     private void setUpStartButton() {
@@ -244,6 +241,8 @@ public class JoinActivity extends AppCompatActivity {
                         // Check if there are more than 1 players
                         if (dataSnapshot.getChildrenCount() >= 2) {
                             // TODO Start Game
+                            Intent gameIntent = new Intent(JoinActivity.this, GameActivity.class);
+                            startActivity(gameIntent);
                         } else {
                             Toast.makeText(JoinActivity.this, "Need at least 2 to play", Toast.LENGTH_SHORT).show();
                         }
@@ -256,5 +255,14 @@ public class JoinActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (gameFirebase != null && selfPlayerFirebase != null) {
+            gameFirebase.child("players").child(getSelfPlayerID()).removeValue();
+        }
     }
 }
