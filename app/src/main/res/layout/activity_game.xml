@@ -3,10 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.bboyairwreck.qwickly.GameActivity">
+    android:keepScreenOn="true"
+    tools:context="com.bboyairwreck.qwickly.GameActivity"
+    android:background="@color/game_background">
+
+    <ImageButton
+        android:id="@+id/ibBAM"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bam_button_background"
+        android:background="@android:color/transparent"
+        />
 
 </RelativeLayout>
