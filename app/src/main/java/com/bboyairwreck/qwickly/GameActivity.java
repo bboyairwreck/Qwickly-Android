@@ -34,7 +34,7 @@ public class GameActivity extends Activity {
                 if (isBAMActive) {
                     Firebase bamTime = gameFireBase.child("round1").push();
                     bamTime.setValue(QwicklyApplication.getInstance().getSelfPlayerID());
-                    isBAMActive = false;
+//                    isBAMActive = false;  // TODO uncomment this so they press only once
                 }
             }
         });
