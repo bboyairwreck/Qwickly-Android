@@ -1,6 +1,7 @@
 package com.bboyairwreck.qwickly;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.firebase.client.Firebase;
@@ -11,7 +12,7 @@ import com.firebase.client.Firebase;
 public class QwicklyApplication extends Application {
     private final String TAG = QwicklyApplication.class.getSimpleName();
     public static QwicklyApplication instance;    // singleton
-    private String username = "unknown";
+    private String username = "guest";
     private Firebase qFirebase;
     private Firebase gameFirebase;
     private Firebase selfPlayerFirebase;
@@ -34,6 +35,10 @@ public class QwicklyApplication extends Application {
 
         Firebase.setAndroidContext(this);
         qFirebase = new Firebase(Constants.FIREBASE_URL);
+
+        // Get username from preferences
+        String username = getQSharedPreferences().getString("username", "guest");
+        this.setUsername(username);
     }
 
     @Override
@@ -48,6 +53,7 @@ public class QwicklyApplication extends Application {
 
     public void setUsername(String username) {
         this.username = username;
+        getQSharedPreferences().edit().putString("username", username);
     }
 
     public String getUsername() {
@@ -72,5 +78,9 @@ public class QwicklyApplication extends Application {
 
     public String getSelfPlayerID() {
         return selfPlayerFirebase.getKey();
+    }
+
+    public SharedPreferences getQSharedPreferences() {
+        return getSharedPreferences(getString(R.string.shared_preference_key), MODE_PRIVATE);
     }
 }

@@ -10,25 +10,34 @@
     android:orientation="vertical"
     tools:context=".ModeActivity">
 
-    <Button
-        android:id="@+id/btnStartingPlayer"
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Starting Player"/>
+        android:layout_marginBottom="40dp"
+        >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="vs"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:layout_margin="10dp"/>
+        <Button
+            android:id="@+id/btnSetUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="Set"
+            />
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter username here"
+            android:layout_toLeftOf="@id/btnSetUsername"
+            />
+    </RelativeLayout>
 
     <Button
-        android:id="@+id/btnReceivingPlayer"
-        android:layout_width="fill_parent"
+        android:id="@+id/btnCreate"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Receiving Player"/>
+        android:text="Create Game"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -38,11 +47,6 @@
         android:gravity="center"
         android:layout_margin="20dp"/>
 
-    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Create Game"/>
     <Button
         android:id="@+id/btnJoin"
         android:layout_width="match_parent"
