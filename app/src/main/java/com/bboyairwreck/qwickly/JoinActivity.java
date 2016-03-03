@@ -227,6 +227,7 @@ public class JoinActivity extends AppCompatActivity {
     private void setSelfPlayer() {
         selfPlayerFirebase = gameFirebase.child("players").push();
         selfPlayerFirebase.setValue(username);
+        selfPlayerFirebase.onDisconnect().removeValue();
         QwicklyApplication.getInstance().setSelfPlayerFirebase(selfPlayerFirebase);
     }
 
