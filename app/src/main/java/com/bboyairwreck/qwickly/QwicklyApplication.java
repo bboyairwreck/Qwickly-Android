@@ -57,7 +57,10 @@ public class QwicklyApplication extends Application {
     }
 
     public String getUsername() {
-        return username;
+        if (this.username == null) {
+            this.username = getQSharedPreferences().getString("username", "guest");
+        }
+        return this.username;
     }
 
     public Firebase getQFirebase() {
